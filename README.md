@@ -4,7 +4,7 @@
 
 
 ## Release
-- [1/5] Our codes are currently undergoing internal review, will be release shortly (expecting next week).
+- [1/5] Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
 ## Acknowledgement
 We build our project based on
