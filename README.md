@@ -123,7 +123,7 @@ To ensure the reproducibility, we evaluate the models with greedy decoding.
 
 See [Evaluation.md].
 
-# Usage and License Notices
+### Usage and License Notices
 This project utilizes certain datasets and checkpoints that are subject to their respective original licenses. Users must comply with all terms and conditions of these original licenses. This project is licensed permissively under the Apache 2.0 license and does not impose any additional constraints. 
 
 ## Citation
