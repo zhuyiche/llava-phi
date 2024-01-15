@@ -4,7 +4,7 @@
 
 
 ## Release
-[1/15] Our model and training codes are released.
+[1/15] Our model and training codes are released. \\
 [1/5] Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
 
@@ -32,7 +32,7 @@ pip install -e .
 ```
 
 ## LLaVA-Phi Weights
-
+#Todo
 
 ## Train
 
