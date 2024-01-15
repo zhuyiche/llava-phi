@@ -4,7 +4,8 @@
 
 
 ## Release
-[1/15] Our model and training codes are released. \\
+[1/15] Our model and training codes are released.
+
 [1/5] Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
 
@@ -34,6 +35,9 @@ pip install -e .
 ## LLaVA-Phi Weights
 #Todo
 
+## Demo
+#Tdo
+
 ## Train
 
 *Below is the latest training configuration for LLaVA v1.5. For legacy models, please refer to README of [this](https://github.com/haotian-liu/LLaVA/tree/v1.0.1) version for now. We'll add them in a separate doc later.*
@@ -43,7 +47,7 @@ LLaVA training consists of two stages: (1) feature alignment stage: use our 558K
 LLaVA is trained on 8 A100 GPUs with 80GB memory. To train on fewer GPUs, you can reduce the `per_device_train_batch_size` and increase the `gradient_accumulation_steps` accordingly. Always keep the global batch size the same: `per_device_train_batch_size` x `gradient_accumulation_steps` x `num_gpus`.
 
 ### Hyperparameters
-We use a similar set of hyperparameters as Vicuna in finetuning.  Both hyperparameters used in pretraining and finetuning are provided below.
+We use a similar set of hyperparameters as Vicuna in finetuning.  Both hyperparameters used in pretraining and finetuning are provided below. We note that the hyperparameters may not be the same as we reported in the arxiv paper, as this is an on-going project and we are making frequent changes on our codes.
 
 1. Pretraining
 
