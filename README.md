@@ -65,7 +65,7 @@ We use a similar set of hyperparameters as Vicuna in finetuning.  Both hyperpara
 
 Our base model phi-2, you should download the weights from [here](https://huggingface.co/susnato/phi-2).
 
-### Intergate the model
+### Integrate the model
 
 ### Pretrain (feature alignment)
 
