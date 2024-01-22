@@ -59,7 +59,9 @@ Our base model is phi-2. You should download the weights from [here](https://hug
 Our vision encoder is ViT-L/14 336px. You should download the weights from [here](https://huggingface.co/openai/clip-vit-large-patch14-336).
 
 ### Integrate the model
-You should first integrate phi-2 and ViT-L/14 336px into a single model by running the following script:
+Please download the 558K subset of the LAION-CC-SBU dataset with BLIP captions from [here](https://huggingface.co/datasets/liuhaotian/LLaVA-Pretrain). <br>
+
+Then, you should integrate phi-2 and ViT-L/14 336px into a single model by running the following script:
 ```bash
 bash ./script/llava_phi/get_base_model.sh
 cp ./openai/clip-vit-large-patch14-336/preprocessor_config.json ./base_checkpoints_llava_phi
@@ -67,7 +69,7 @@ cp ./openai/clip-vit-large-patch14-336/preprocessor_config.json ./base_checkpoin
 
 ### Pretrain (feature alignment)
 
-Please download the 558K subset of the LAION-CC-SBU dataset with BLIP captions from [here](https://huggingface.co/datasets/liuhaotian/LLaVA-Pretrain). <br>
+
 ```bash
 bash ./scripts/llava_phi/pretrain.sh
 cp ./openai/clip-vit-large-patch14-336/preprocessor_config.json ./checkpoints/llavaPhi-v0-3b-pretrain
