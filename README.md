@@ -11,7 +11,6 @@
 ## Contents
 - [Install](#install)
 - [LLaVA-Phi Weights](#llava-weights)
-- [Demo](#Demo)
 - [Train](#train)
 - [Evaluation](#evaluation)
 
