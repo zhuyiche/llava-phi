@@ -4,8 +4,8 @@
 
 
 ## Release
-[1/26] Now you can download our model weight.
-[1/15] Our model and training codes are released. <br>
+[1/26] Now you can download our [model weight]((#llava-weights)).\
+[1/15] Our model and training codes are released. <br>\
 [1/5] Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
 
@@ -32,10 +32,10 @@ pip install -e .
 ```
 
 ## LLaVA-Phi Weights
-Download model weight at [Huggingface](https://huggingface.co/zxmonent/llava-phi)
+Download model weight at [huggingface](https://huggingface.co/zxmonent/llava-phi)
 
 ## Training Curve
-The training curve can be found [Wandb](https://wandb.ai/ecnu_/llava-phi/reports/LLaVA-Phi-Training-Logs--Vmlldzo2NTkxMjg1)
+The training curve can be found at [wandb](https://wandb.ai/ecnu_/llava-phi/reports/LLaVA-Phi-Training-Logs--Vmlldzo2NTkxMjg1)
 
 ## Train
 
