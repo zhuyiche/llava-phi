@@ -4,6 +4,7 @@
 
 
 ## Release
+[1/26] Now you can download our model weight.
 [1/15] Our model and training codes are released. <br>
 [1/5] Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
@@ -31,7 +32,7 @@ pip install -e .
 ```
 
 ## LLaVA-Phi Weights
-[TODO]
+Download model weight at https://huggingface.co/zxmonent/llava-phi
 
 ## Train
 
