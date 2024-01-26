@@ -32,7 +32,10 @@ pip install -e .
 ```
 
 ## LLaVA-Phi Weights
-Download model weight at https://huggingface.co/zxmonent/llava-phi
+Download model weight at [Huggingface](https://huggingface.co/zxmonent/llava-phi)
+
+## Training Curve
+The training curve can be found [Wandb](https://wandb.ai/ecnu_/llava-phi/reports/LLaVA-Phi-Training-Logs--Vmlldzo2NTkxMjg1)
 
 ## Train
 
