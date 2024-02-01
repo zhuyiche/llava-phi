@@ -102,7 +102,7 @@ If you find LLaVA-Phi useful for your research and applications, please cite usi
 ```bibtex
 
 @article{zhu2024llava,
-  title={LLaVA-$\phi $: Efficient Multi-Modal Assistant with Small Language Model},
+  title={LLaVA-$\phi$: Efficient Multi-Modal Assistant with Small Language Model},
   author={Zhu, Yichen and Zhu, Minjie and Liu, Ning and Ou, Zhicai and Mou, Xiaofeng and Tang, Jian},
   journal={arXiv preprint arXiv:2401.02330},
   year={2024}
