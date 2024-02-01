@@ -101,11 +101,13 @@ See [Evaluation.md](https://github.com/zhuyiche/llava-phi/blob/main/docs/Evaluat
 If you find LLaVA-Phi useful for your research and applications, please cite using this BibTeX:
 ```bibtex
 
-@article{zhu2024llava,
-  title={LLaVA-$\phi$: Efficient Multi-Modal Assistant with Small Language Model},
-  author={Zhu, Yichen and Zhu, Minjie and Liu, Ning and Ou, Zhicai and Mou, Xiaofeng and Tang, Jian},
-  journal={arXiv preprint arXiv:2401.02330},
-  year={2024}
+@misc{zhu2024llavaphi,
+      title={LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model}, 
+      author={Yichen Zhu and Minjie Zhu and Ning Liu and Zhicai Ou and Xiaofeng Mou and Jian Tang},
+      year={2024},
+      eprint={2401.02330},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 
