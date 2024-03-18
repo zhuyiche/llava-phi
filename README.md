@@ -2,6 +2,12 @@
 
 **LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model** [[Paper](https://arxiv.org/pdf/2401.02330)] <br>
 
+## News
+[3/18] We release a new project named Mipha
+**Mipha: A Comprehensive Overhaul of Multimodal Assistant with Small Language Models** [[Paper](https://arxiv.org/abs/2403.06199)] [[Code](https://github.com/zhuyiche/Mipha)]<br>
+Our Mipha-3B outperforms many existing 3B MLLMs, including Bunny-3B/MobileVLM-v2, using much less training data. \
+We also analyze the design space of small multimodal models with some new findings. \
+Check out our paper and give it a try! 
 
 ## Release
 [1/26] Now you can download our [model weight]((#llava-weights)).\
@@ -100,7 +106,6 @@ See [Evaluation.md](https://github.com/zhuyiche/llava-phi/blob/main/docs/Evaluat
 
 If you find LLaVA-Phi useful for your research and applications, please cite using this BibTeX:
 ```bibtex
-
 @misc{zhu2024llavaphi,
       title={LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model}, 
       author={Yichen Zhu and Minjie Zhu and Ning Liu and Zhicai Ou and Xiaofeng Mou and Jian Tang},
@@ -108,6 +113,15 @@ If you find LLaVA-Phi useful for your research and applications, please cite usi
       eprint={2401.02330},
       archivePrefix={arXiv},
       primaryClass={cs.CV}
+}
+```
+
+```bibtex
+@article{zhu2024comprehensive,
+  title={A Comprehensive Overhaul of Multimodal Assistant with Small Language Models},
+  author={Zhu, Minjie and Zhu, Yichen and Liu, Xin and Liu, Ning and Xu, Zhiyuan and Shen, Chaomin and Peng, Yaxin and Ou, Zhicai and Feng, Feifei and Tang, Jian},
+  journal={arXiv preprint arXiv:2403.06199},
+  year={2024}
 }
 ```
 
