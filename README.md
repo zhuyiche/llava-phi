@@ -3,11 +3,9 @@
 **LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model** [[Paper](https://arxiv.org/pdf/2401.02330)] <br>
 
 ## News
-[3/18] We release a new project named Mipha
+[3/18] We release a new project named Mipha \
 **Mipha: A Comprehensive Overhaul of Multimodal Assistant with Small Language Models** [[Paper](https://arxiv.org/abs/2403.06199)] [[Code](https://github.com/zhuyiche/Mipha)]<br>
-Our Mipha-3B outperforms many existing 3B MLLMs, including Bunny-3B/MobileVLM-v2, using much less training data. \
-We also analyze the design space of small multimodal models with some new findings. \
-Check out our paper and give it a try! 
+Our Mipha-3B outperforms many existing 3B MLLMs, including Bunny-3B/MobileVLM-v2, using much less training data. We also analyze the design space of small multimodal models with some new findings. Check out our paper and give it a try! 
 
 ## Release
 [1/26] Now you can download our [model weight]((#llava-weights)).\
