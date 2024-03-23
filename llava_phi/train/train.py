@@ -362,10 +362,10 @@ def preprocess_v0(
 
             if has_image:
                 round_len = len(tokenizer_image_token(rou, tokenizer)) + 1  # +1 for <|endoftext|>
-                instruction_len = len(tokenizer_image_token(parts[0], tokenizer))
+                instruction_len = len(tokenizer_image_token(parts[0], tokenizer)) - 1
             else:
                 round_len = len(tokenizer(rou).input_ids) + 1  # +1 for <|endoftext|>
-                instruction_len = len(tokenizer(parts[0]).input_ids)
+                instruction_len = len(tokenizer(parts[0]).input_ids) - 1
 
             target[cur_len: cur_len + instruction_len] = IGNORE_INDEX
 
