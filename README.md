@@ -1,21 +1,33 @@
-# LLaVA-Phi: Small Multi-Modal Assistant
+<div style="display: flex; align-items: center;">
+  <a href="https://arxiv.org/abs/2403.06199">
+    <h1>LLaVA-Phi & Mipha: Towards Multimodal Small Language Models</h1>
+  </a>
+</div>
 
-**LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model** [[Paper](https://arxiv.org/pdf/2401.02330)] <br>
+<div align="center">
+<img src="docs/mipha.jpg" width="20%">
+</div>
 
-## News
-[3/18] We release a new project named Mipha \
-**Mipha: A Comprehensive Overhaul of Multimodal Assistant with Small Language Models** [[Paper](https://arxiv.org/abs/2403.06199)] [[Code](https://github.com/zhuyiche/Mipha)]<br>
-Our Mipha-3B outperforms many existing 3B MLLMs, including Bunny-3B/MobileVLM-v2, using much less training data. We also analyze the design space of small multimodal models with some new findings. Check out our paper and give it a try! 
+* **LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model** <br>
+  [![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.06199)
 
-## Release
-[1/26] Now you can download our [model weight]((#llava-weights)).\
-[1/15] Our model and training codes are released. \
-[1/5] Our codes are currently undergoing an internal review and will be released shortly (expected next week)
+
+
+* **Mipha: A Comprehensive Overhaul of Multimodal Assistant with Small Language Models** <br>
+  [![arXiv](https://img.shields.io/badge/Arxiv-2312.16886-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.02330) 
+
+
+## 📸 Release
+* **`March. 23th, 2024`**: Our model 🔥🔥🔥 **Mipha-3B** and corresponding training codes are released.
+* **`Jan. 26th, 2024`**:Now you can download our [model weight]((#llava-weights)).\
+* **`Jan. 15th, 2024`**:Our model and training codes are released. \
+* **`Jan. 5th, 2024`**: Our codes are currently undergoing an internal review and will be released shortly (expected next week)
+
 
 
 ## Contents
 - [Install](#install)
-- [LLaVA-Phi Weights](#llava-weights)
+- [Mipha Weights](#Mipha-weights)
 - [Train](#train)
 - [Evaluation](#evaluation)
 
@@ -23,87 +35,91 @@ Our Mipha-3B outperforms many existing 3B MLLMs, including Bunny-3B/MobileVLM-v2
 
 1. Clone this repository and navigate to llava-phi folder
 ```bash
-git clone https://github.com/zhuyiche/llava-phi.git
-cd llava-phi
+git clone https://github.com/zhuyiche/Mipha.git
+cd Mipha
 ```
 
 2. Install Package
 ```Shell
-conda create -n llava_phi python=3.10 -y
-conda activate llava_phi
+conda create -n mipha python=3.10 -y
+conda activate mipha
 pip install --upgrade pip  # enable PEP 660 support
 pip install -e .
 ```
 
-## LLaVA-Phi Weights
-Download model weight at [huggingface](https://huggingface.co/zxmonent/llava-phi)
-
-## Training Curve
-The training curve can be found at [wandb](https://wandb.ai/ecnu_/llava-phi/reports/LLaVA-Phi-Training-Logs--Vmlldzo2NTkxMjg1)
+## Mipha Weights
+Download Mipha-3B at [huggingface](https://huggingface.co/zhumj34/Mipha-3B)
 
 ## Train
 
-LLaVA-Phi training consists of two stages: (1) feature alignment stage: use [LLaVA-1.5](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md) 558K subset of the LAION-CC-SBU dataset to connect a *frozen pretrained* vision encoder to a *frozen LLM*; 
+Mipha training consists of two stages: (1) feature alignment stage: use [LLaVA-1.5](https://github.com/haotian-liu/LLaVA/blob/main/docs/Data.md) 558K subset of the LAION-CC-SBU dataset to connect a *frozen pretrained* vision encoder to a *frozen LLM*; 
 (2) visual instruction tuning stage: visual instruction tuning stage: use 150K GPT-generated multimodal instruction-following data, plus around 515K VQA data from academic-oriented tasks, to teach the model to follow multimodal instructions.
 
 ### Hyperparameters
-We use a similar set of hyperparameters as LLaVA-1.5 in both pretraining and finetuning phase.  Both hyperparameters used in pretraining and finetuning are provided below.
+The hyperparameters used in pretraining and finetuning are provided below.
 
 1. Pretraining
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay |
 |----------------| ---: | ---: | ---: | ---: | ---: |
-| LLaVA-Phi      | 256 | 1e-3 | 1 | 2048 | 0 |
+| Mipha          | 256 | 1e-3 | 1 | 2048 | 0 |
 
 2. Finetuning
 
 | Hyperparameter | Global Batch Size | Learning rate | Epochs | Max length | Weight decay |
-|----------------| ---: | ---: | ---: | ---: | ---: |
-| LLaVA-Phi      | 128 | 2e-5 | 1 | 2048 | 0 |
+|----------------| ---: | ---: |-------:| ---: | ---: |
+| Mipha      | 128 | 2e-5 |      2 | 2048 | 0 |
 
 ### Download base checkpoints
 
-Our base model is phi-2. You should download the weights from [here](https://huggingface.co/susnato/phi-2), and change the `--model_name_or_path` in [`get_base_model.sh`](https://github.com/zhuyiche/llava-phi/blob/b7266edc8a90e7b11fa3492491a40cdb8993f831/scripts/llava_phi/get_base_model.sh#L4). <br>
-Our vision encoder is ViT-L/14 336px. You should download the weights from [here](https://huggingface.co/openai/clip-vit-large-patch14-336).
+Our base model is phi-2. You should download the weights from [here](https://huggingface.co/susnato/phi-2), and change the `--model_name_or_path` in [`get_base_model.sh`](https://github.com/zhuyiche/Mipha/blob/main/scripts/mipha/get_base_model.sh). <br>
+Our vision encoder is SigLIP-SO (0.4B). You should download the weights from [here](https://huggingface.co/google/siglip-so400m-patch14-384).
 
 ### Integrate the model
 Please download the 558K subset of the LAION-CC-SBU dataset with BLIP captions from [here](https://huggingface.co/datasets/liuhaotian/LLaVA-Pretrain). <br>
 
-Then, you should integrate phi-2 and ViT-L/14 336px into a single model by running the following script:
+Then, you should integrate phi-2 and SigLIP-SO into a single model by running the following script:
 ```bash
-bash ./script/llava_phi/get_base_model.sh
-cp ./openai/clip-vit-large-patch14-336/preprocessor_config.json ./base_checkpoints_llava_phi
+bash ./script/mipha/get_base_model.sh
 ```
 
 ### Pretrain (feature alignment)
 
 
 ```bash
-bash ./scripts/llava_phi/pretrain.sh
-cp ./openai/clip-vit-large-patch14-336/preprocessor_config.json ./checkpoints/llavaPhi-v0-3b-pretrain
+bash ./scripts/mipha/pretrain.sh
 ```
 
 ### Visual Instruction Tuning
 
 Please refer [here](https://github.com/haotian-liu/LLaVA/blob/9a26bd1435b4ac42c282757f2c16d34226575e96/README.md#visual-instruction-tuning) to prepare the instruction tuning data.
 
-Training script with DeepSpeed ZeRO-3: [`finetune.sh`](https://github.com/zhuyiche/llava-phi/blob/main/scripts/llava_phi/finetune.sh).
+Training script with DeepSpeed ZeRO-3: [`finetune.sh`](https://github.com/zhuyiche/Mipha/blob/main/scripts/mipha/finetune.sh).
 
 ```bash
-bash ./scripts/llava_phi/finetune.sh
-cp ./openai/clip-vit-large-patch14-336/preprocessor_config.json ./checkpoints/llavaPhi-v0-3b-finetune
+bash ./scripts/mipha/finetune.sh
 ```
 
 ## Evaluation
 
-To ensure the reproducibility, we evaluate the models with greedy decoding.
+To ensure the reproducibility, we evaluate the models with greedy decoding. 
 
-See [Evaluation.md](https://github.com/zhuyiche/llava-phi/blob/main/docs/Evaluation.md).
+See [Evaluation.md](https://github.com/zhuyiche/Mipha/blob/main/docs/Evaluation.md).
+
+## CLI Inference Guide
+You can chat about images using Mipha without the Gradio interface. Here is an example command:
+```bash
+python -m mipha.serve.cli \
+    --model-path /path/to/mipha-3B \
+    --image-file "mipha/serve/examples/extreme_ironing.jpg" \
+    --conv-mode phi
+```
 
 ## Citation
 
-If you find LLaVA-Phi useful for your research and applications, please cite using this BibTeX:
-```bibtex
+If you find LLaVA-Phi or Mipha useful in your research or applications, please consider giving a star ⭐ and citing using the following BibTeX:
+
+```
 @misc{zhu2024llavaphi,
       title={LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model}, 
       author={Yichen Zhu and Minjie Zhu and Ning Liu and Zhicai Ou and Xiaofeng Mou and Jian Tang},
@@ -112,18 +128,18 @@ If you find LLaVA-Phi useful for your research and applications, please cite usi
       archivePrefix={arXiv},
       primaryClass={cs.CV}
 }
-```
 
-```bibtex
 @article{zhu2024comprehensive,
   title={A Comprehensive Overhaul of Multimodal Assistant with Small Language Models},
   author={Zhu, Minjie and Zhu, Yichen and Liu, Xin and Liu, Ning and Xu, Zhiyuan and Shen, Chaomin and Peng, Yaxin and Ou, Zhicai and Feng, Feifei and Tang, Jian},
   journal={arXiv preprint arXiv:2403.06199},
   year={2024}
 }
+
 ```
 
 ## Acknowledgement
 We build our project based on
 - [LLaVA](https://github.com/haotian-liu/LLaVA): an amazing open-sourced project for vision language assistant
-- [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory): We use this codebase to finetune Phi model
+- [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory): We use this codebase to finetune SLMs
+- [Safe-RLHF](https://github.com/PKU-Alignment/safe-rlhf): We use this codebase to instruct-tune SLMs
