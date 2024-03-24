@@ -39,16 +39,24 @@ Before preparing task-specific data, download [eval.zip from LLaVA v1.5 ](https:
 1. Download [`test2015`](http://images.cocodataset.org/zips/test2015.zip) and put it under `./playground/data/eval/vqav2`.
 2. Multi-GPU inference.
 ```Shell
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/llava_phi/eval/vqav2.sh
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/mipha/eval/vqav2.sh
 ```
 3. Submit the results to the evaluation server: `./playground/data/eval/vqav2/answers_upload`.
+
+### GQA
+
+1. Download the data following the official instructions [here](https://cs.stanford.edu/people/dorarad/gqa/download.html) and put under `./playground/data/eval/gqa/data`.
+2. Multi-GPU inference.
+```Shell
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/mipha/eval/gqa.sh
+```
 
 ### VisWiz
 
 1. Download [`test.json`](https://vizwiz.cs.colorado.edu/VizWiz_final/vqa_data/Annotations.zip) and extract [`test.zip`](https://vizwiz.cs.colorado.edu/VizWiz_final/images/test.zip) to `test`. Put them under `./playground/data/eval/vizwiz`.
 2. Single-GPU inference.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/vizwiz.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/vizwiz.sh
 ```
 3. Submit the results to the evaluation server: `./playground/data/eval/vizwiz/answers_upload`.
 
@@ -57,7 +65,7 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/vizwiz.sh
 1. Under `./playground/data/eval/scienceqa`, download `images`, `pid_splits.json`, `problems.json` from the `data/scienceqa` folder of the ScienceQA [repo](https://github.com/lupantech/ScienceQA).
 2. Single-GPU inference and evaluate.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/sqa.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/sqa.sh
 ```
 
 ### TextVQA
@@ -65,7 +73,7 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/sqa.sh
 1. Download [`TextVQA_0.5.1_val.json`](https://dl.fbaipublicfiles.com/textvqa/data/TextVQA_0.5.1_val.json) and [images](https://dl.fbaipublicfiles.com/textvqa/images/train_val_images.zip) and extract to `./playground/data/eval/textvqa`.
 2. Single-GPU inference and evaluate.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/textvqa.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/textvqa.sh
 ```
 
 ### POPE
@@ -73,7 +81,7 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/textvqa.sh
 1. Download `coco` from [POPE](https://github.com/AoiDragon/POPE/tree/e3e39262c85a6a83f26cf5094022a782cb0df58d/output/coco) and put under `./playground/data/eval/pope`.
 2. Single-GPU inference and evaluate.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/pope.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/pope.sh
 ```
 
 ### MME
@@ -83,7 +91,7 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/pope.sh
 3. put the official `eval_tool` and `MME_Benchmark_release_version` under `./playground/data/eval/MME`.
 4. Single-GPU inference and evaluate.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/mme.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/mme.sh
 ```
 
 ### MMBench
@@ -91,16 +99,35 @@ CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/mme.sh
 1. Download [`mmbench_dev_20230712.tsv`](https://download.openmmlab.com/mmclassification/datasets/mmbench/mmbench_dev_20230712.tsv) and put under `./playground/data/eval/mmbench`.
 2. Single-GPU inference.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/mmbench.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/mmbench.sh
 ```
 3. Submit the results to the evaluation server: `./playground/data/eval/mmbench/answers_upload/mmbench_dev_20230712`.
 
+
+### MMBench-CN
+
+1. Download [`mmbench_dev_cn_20231003.tsv`](https://download.openmmlab.com/mmclassification/datasets/mmbench/mmbench_dev_en_20231003.tsv) and put under `./playground/data/eval/mmbench`.
+2. Single-GPU inference.
+```Shell
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/mmbench_cn.sh
+```
+3. Submit the results to the evaluation server: `./playground/data/eval/mmbench/answers_upload/mmbench_dev_cn_20231003`.
 
 ### MM-Vet
 
 1. Extract [`mm-vet.zip`](https://github.com/yuweihao/MM-Vet/releases/download/v1/mm-vet.zip) to `./playground/data/eval/mmvet`.
 2. Single-GPU inference.
 ```Shell
-CUDA_VISIBLE_DEVICES=0 bash scripts/llava_phi/eval/mmvet.sh
+CUDA_VISIBLE_DEVICES=0 bash scripts/mipha/eval/mmvet.sh
 ```
 3. Evaluate the predictions in `./playground/data/eval/mmvet/results` using the official jupyter notebook.
+
+
+### SEED-Bench
+
+1. Following the official [instructions](https://github.com/AILab-CVC/SEED-Bench/blob/main/DATASET.md) to download the images and the videos. Put images under `./playground/data/eval/seed_bench/SEED-Bench-image`.
+2. Multiple-GPU inference and evaluate. (We only evaluate Mipha on the image part)
+```Shell
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 bash scripts/mipha/eval/seed.sh
+```
+3. Optionally, submit the results to the leaderboard: `./playground/data/eval/seed_bench/answers_upload` using the official jupyter notebook.

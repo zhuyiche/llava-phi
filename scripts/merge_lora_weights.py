@@ -1,6 +1,6 @@
 import argparse
-from llava_phi.model.builder import load_pretrained_model
-from llava_phi.mm_utils import get_model_name_from_path
+from mipha.model.builder import load_pretrained_model
+from mipha.mm_utils import get_model_name_from_path
 
 
 def merge_lora(args):
