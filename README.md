@@ -9,12 +9,12 @@
 </div>
 
 * **LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model** <br>
-  [![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.06199)
+  [![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.02330)
 
 
 
 * **Mipha: A Comprehensive Overhaul of Multimodal Assistant with Small Language Models** <br>
-  [![arXiv](https://img.shields.io/badge/Arxiv-2312.16886-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.02330) 
+  [![arXiv](https://img.shields.io/badge/Arxiv-2312.16886-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2403.06199) 
 
 
 ## 📸 Release
