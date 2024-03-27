@@ -23,6 +23,11 @@
 * **`Jan. 15th, 2024`**:Our model and training codes are released. \
 * **`Jan. 5th, 2024`**: Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
+## Model Zoo
+## MobileVLM Family
+| Model | LLM | VQAv2 | GQA | SQA<sup>I</sup> | VQA<sup>T</sup> | POPE | MME<sup>P</sup>  | MMB |
+|-------|-------|---|-----|-------|-------|-------|-------|-------|
+| <div style="width: 93pt"> Mipha-3B   | <div style="width: 91pt"> Phi-2-1.3B | 81.3 | 63.9 | 70.9 | 56.6 | 86.7 | 1488.9 | 69.7 | 
 
 
 ## Contents
