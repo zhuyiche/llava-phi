@@ -27,7 +27,10 @@
 ## MobileVLM Family
 | Model | LLM | VQAv2 | GQA | SQA<sup>I</sup> | VQA<sup>T</sup> | POPE | MME<sup>P</sup>  | MMB |
 |-------|-------|---|-----|-------|-------|-------|-------|-------|
-| <div style="width: 93pt"> Mipha-3B   | <div style="width: 91pt"> Phi-2-1.3B | 81.3 | 63.9 | 70.9 | 56.6 | 86.7 | 1488.9 | 69.7 | 
+| <div style="width: 93pt"> LLaVA-Phi-3B  | <div style="width: 91pt"> Phi-2-2.7B | 71.4 | - | 68.4 | 48.6 | 85.0 | 1335.1 | 59.8 |
+| <div style="width: 93pt"> Mipha-1.6B   | <div style="width: 91pt"> Phi-1.5-1.3B | 77.5 | 62.7 | 58.3 | 45.6 | 86.9 | 1203.1 | 57.7 |
+| <div style="width: 93pt"> Mipha-2.4B   | <div style="width: 91pt"> Gemma-2B | 79.5 | 63.3 | 65.3 | 52.4 | 86.6 | 1397.1 | 59.4 |
+| <div style="width: 93pt"> Mipha-3B   | <div style="width: 91pt"> Phi-2-2.7B | 81.3 | 63.9 | 70.9 | 56.6 | 86.7 | 1488.9 | 69.7 | 
 
 
 ## Contents
