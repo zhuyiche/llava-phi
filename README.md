@@ -24,7 +24,7 @@
 * **`Jan. 5th, 2024`**: Our codes are currently undergoing an internal review and will be released shortly (expected next week)
 
 ## Model Zoo
-## MobileVLM Family
+## Mipha & LLaVA-Phi
 | Model | LLM | VQAv2 | GQA | SQA<sup>I</sup> | VQA<sup>T</sup> | POPE | MME<sup>P</sup>  | MMB |
 |-------|-------|---|-----|-------|-------|-------|-------|-------|
 | <div style="width: 93pt"> LLaVA-Phi-3B  | <div style="width: 91pt"> Phi-2-2.7B | 71.4 | - | 68.4 | 48.6 | 85.0 | 1335.1 | 59.8 |
