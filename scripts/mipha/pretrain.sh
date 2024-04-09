@@ -12,9 +12,6 @@ vision_encoder=google/siglip-so400m-patch14-384
 model_dir=./ckpts/checkpoints-siglip/base_checkpoints/mipha_phi_2
 outputdir=./ckpts/checkpoints-siglip/phi_2/MiphaPhi2-v0-3b-pretrain
 
-# vision_encoder=openai/clip-vit-large-patch14-336
-vision_encoder=google/siglip-large-patch16-384
-
 deepspeed --master_port 29600 mipha/train/train.py \
     --deepspeed ./scripts/zero2.json \
     --model_name_or_path $model_dir \
