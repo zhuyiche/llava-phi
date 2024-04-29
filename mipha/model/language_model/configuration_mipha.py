@@ -3,6 +3,7 @@ from typing import Union
 from transformers import PretrainedConfig, PhiConfig, Dinov2Config, GemmaConfig, GPTNeoXConfig
 from transformers.utils import logging
 from transformers.utils.backbone_utils import get_aligned_output_features_output_indices
+from .phi3.modeling_phi3 import Phi3Config
 
 logger = logging.get_logger(__name__)
 
@@ -126,7 +127,8 @@ class MiphaVisionConfig(PretrainedConfig):
         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
 
         # get the vision config dict if we are loading from CLIPConfig
-        if config_dict.get("model_type") == "mipha_phi" or config_dict.get("model_type") == "mipha_gemma":
+        if (config_dict.get("model_type") == "mipha_phi" or config_dict.get("model_type") == "mipha_gemma"
+                or config_dict.get("model_type") == "mipha_phi3"):
             config_dict = config_dict["vision_config"]["vision_tower"]
 
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
@@ -160,7 +162,8 @@ class ProjectorConfig(PretrainedConfig):
         config_dict, kwargs = cls.get_config_dict(pretrained_model_name_or_path, **kwargs)
 
         # get the vision config dict if we are loading from CLIPConfig
-        if config_dict.get("model_type") == "mipha_phi" or config_dict.get("model_type") == "mipha_gemma":
+        if config_dict.get("model_type") == "mipha_phi" or config_dict.get("model_type") == "mipha_gemma" or \
+                config_dict.get("model_type") == "mipha_phi3":
             config_dict = config_dict["vision_config"]["mm_projector"]
 
         if "model_type" in config_dict and hasattr(cls, "model_type") and config_dict["model_type"] != cls.model_type:
@@ -192,6 +195,18 @@ class MiphaPhiConfig(PhiConfig):
 
 class MiphaGemmaConfig(GemmaConfig):
     model_type = "mipha_gemma"
+
+    def __init__(self, vision_config=None, **kwargs):
+        if vision_config is None:
+            self.vision_config = DEFAULT_VISUAL_CONFIG
+        else:
+            self.vision_config = vision_config
+
+        super().__init__(**kwargs)
+
+
+class MiphaPhi3Config(Phi3Config):
+    model_type = "mipha_phi3"
 
     def __init__(self, vision_config=None, **kwargs):
         if vision_config is None:
