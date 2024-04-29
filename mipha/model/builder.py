@@ -26,8 +26,16 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         kwargs['torch_dtype'] = torch.float16
     print("load model from model_path: ", model_path)
     tokenizer = AutoTokenizer.from_pretrained(model_path, use_fast=True)
-    if "phi" in model_name.lower():
-        print("load Mipha-Phi MSLM!!!")
+    if "phi3" in model_name.lower() or "phi-3" in model_name.lower():
+        print("load Mipha-Phi3 MSLM!!!")
+        config = MiphaPhi3Config.from_pretrained(model_path, trust_remote_code=True)
+        model = MiphaPhi3ForCausalLM.from_pretrained(
+            model_path,
+            config=config,
+            use_safetensors=True,
+            **kwargs).to("cuda")
+    elif "phi" in model_name.lower():
+        print("load Mipha-Phi2 MSLM!!!")
         config = MiphaPhiConfig.from_pretrained(model_path, trust_remote_code=True)
         model = MiphaPhiForCausalLM.from_pretrained(
             model_path,
