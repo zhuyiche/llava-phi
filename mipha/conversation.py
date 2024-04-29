@@ -257,6 +257,17 @@ conv_gemma_2 = Conversation(
     sep2="<eos>",
 )
 
+conv_phi_3 = Conversation(
+    system="<|system|> You are a helpful AI assistant.<|end|>",
+    roles=("<|user|>", "<|assistant|>"),
+    version="phi-3",
+    messages=(),
+    offset=0,
+    sep_style=SeparatorStyle.PHI3,
+    sep="\n ",
+    sep2="<|end|>"
+)
+
 default_conversation = conv_phi_v0
 conv_templates = {
     "default": conv_phi_v0,
