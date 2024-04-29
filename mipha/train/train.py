@@ -790,7 +790,17 @@ def train():
                 bnb_4bit_quant_type=training_args.quant_type  # {'fp4', 'nf4'}
             )
         ))
-    if "phi" in model_args.model_name_or_path:
+    if "phi3" in model_args.model_name_or_path or "phi-3" in model_args.model_name_or_path:
+        config = MiphaPhi3Config.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
+        model = MiphaPhi3ForCausalLM.from_pretrained(
+            model_args.model_name_or_path,
+            config=config,
+            cache_dir=training_args.cache_dir,
+            trust_remote_code=True,
+            attn_implementation="flash_attention_2",
+            **bnb_model_from_pretrained_args
+        )
+    elif "phi2" in model_args.model_name_or_path or "phi-2" in model_args.model_name_or_path:
         config = MiphaPhiConfig.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
         model = MiphaPhiForCausalLM.from_pretrained(
             model_args.model_name_or_path,
@@ -862,8 +872,13 @@ def train():
         model_max_length=training_args.model_max_length,
         padding_side="right"
     )
-    if 'phi' in model_args.model_name_or_path:
+    if "phi3" in model_args.model_name_or_path or "phi-3" in model_args.model_name_or_path:
+        tokenizer.pad_token = tokenizer.unk_token  # use unk rather than eos token to prevent endless generation
+        tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids(tokenizer.pad_token)
+        tokenizer.padding_side = 'right'
+    elif 'phi2' in model_args.model_name_or_path or 'phi-2' in model_args.model_name_or_path:
         tokenizer.pad_token = tokenizer.unk_token
+
     if model_args.version in conversation_lib.conv_templates:
         conversation_lib.default_conversation = conversation_lib.conv_templates[model_args.version]
     else:

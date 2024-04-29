@@ -653,7 +653,9 @@ def train():
 
     if model_args.vision_tower is not None:
         # mipha config: load llm config from pretrained model
-        if "phi" in model_args.model_name_or_path:
+        if "phi3" in model_args.model_name_or_path or "phi-3" in model_args.model_name_or_path:
+            config = MiphaPhi3Config.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
+        elif "phi2" in model_args.model_name_or_path or "phi-2" in model_args.model_name_or_path:
             config = MiphaPhiConfig.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
         elif "gemma" in model_args.model_name_or_path:
             config = MiphaGemmaConfig.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
@@ -685,7 +687,15 @@ def train():
         config.vision_config["mm_projector"]["hidden_size"] = config.hidden_size
 
         # load mipha, this would only load the slm part of the model, the rest of the model will be initialized later
-        if "phi" in model_args.model_name_or_path:
+        if "phi3" in model_args.model_name_or_path or "phi-3" in model_args.model_name_or_path:
+            model = MiphaPhi3ForCausalLM.from_pretrained(
+                model_args.model_name_or_path,
+                config=config,
+                cache_dir=training_args.cache_dir,
+                trust_remote_code=True,
+                **bnb_model_from_pretrained_args
+            )
+        elif "phi2" in model_args.model_name_or_path or "phi-2" in model_args.model_name_or_path:
             model = MiphaPhiForCausalLM.from_pretrained(
                 model_args.model_name_or_path,
                 config=config,
