@@ -11,6 +11,7 @@ class SeparatorStyle(Enum):
     PLAIN = auto()
     LLAMA_2 = auto()
     GEMMA = auto()
+    PHI3 = auto()
 
 
 @dataclasses.dataclass
@@ -80,6 +81,16 @@ class Conversation:
                 else:
                     ret += seps[0] + role + "\n"
             # ret = ret.strip() # remove trailing newline
+        elif self.sep_style == SeparatorStyle.PHI3:
+            seps = [self.sep, self.sep2]
+            ret = self.system + seps[1]
+            for i, (role, message) in enumerate(messages):
+                if message:
+                    if type(message) is tuple:
+                        message, _, _ = message
+                    ret += role + message + seps[1]
+                else:
+                    ret += role
         else:
             raise ValueError(f"Invalid style: {self.sep_style}")
 
@@ -110,6 +121,7 @@ class Conversation:
                                 result = Image.new(pil_img.mode, (height, height), background_color)
                                 result.paste(pil_img, ((height - width) // 2, 0))
                                 return result
+
                         image = expand2square(image)
                     elif image_process_mode in ["Default", "Crop"]:
                         pass
@@ -200,6 +212,28 @@ class Conversation:
         }
 
 
+conv_phi_3 = Conversation(
+    system="<|system|>You are a helpful AI assistant.",
+    roles=("<|user|>", "<|assistant|>"),
+    version="phi-3",
+    messages=(),
+    offset=0,
+    sep_style=SeparatorStyle.PHI3,
+    sep=" ",
+    sep2="<|end|>"
+)
+
+# conv_phi_3 = Conversation(
+#     system="<|system|>\nYou are a helpful AI assistant.",
+#     roles=("<|user|>\n", "<|assistant|>\n"),
+#     version="phi-3",
+#     messages=(),
+#     offset=0,
+#     sep_style=SeparatorStyle.PHI3,
+#     sep="",
+#     sep2="<|end|>\n"
+# )
+
 conv_phi_v0 = Conversation(
     system="A chat between a curious user and an artificial intelligence assistant. "
            "The assistant gives helpful, detailed, and polite answers to the user's questions.",
@@ -257,28 +291,19 @@ conv_gemma_2 = Conversation(
     sep2="<eos>",
 )
 
-conv_phi_3 = Conversation(
-    system="<|system|> You are a helpful AI assistant.<|end|>",
-    roles=("<|user|>", "<|assistant|>"),
-    version="phi-3",
-    messages=(),
-    offset=0,
-    sep_style=SeparatorStyle.PHI3,
-    sep="\n ",
-    sep2="<|end|>"
-)
-
 default_conversation = conv_phi_v0
 conv_templates = {
     "default": conv_phi_v0,
     "v0": conv_phi_v0,
     "phi": conv_phi_v0,
+    "phi-1.5": conv_phi_v0,
     "phi-2": conv_phi_v0,
     "gemma": conv_gemma_2,
+    "phi-3": conv_phi_3,
+    "phi3": conv_phi_3,
 
     "plain": conv_llava_plain,
 }
-
 
 if __name__ == "__main__":
     print(default_conversation.get_prompt())
