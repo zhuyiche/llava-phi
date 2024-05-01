@@ -34,10 +34,18 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             config=config,
             use_safetensors=True,
             **kwargs).to("cuda")
-    elif "phi" in model_name.lower():
+    elif "phi2" in model_name.lower() or "phi-2" in model_name.lower():
         print("load Mipha-Phi2 MSLM!!!")
         config = MiphaPhiConfig.from_pretrained(model_path, trust_remote_code=True)
         model = MiphaPhiForCausalLM.from_pretrained(
+            model_path,
+            config=config,
+            use_safetensors=True,
+            **kwargs).to("cuda")
+    elif "phi1_5" in model_name.lower():
+        print("load Mipha-Phi1.5 MSLM!!!")
+        config = MiphaPhi15Config.from_pretrained(model_path, trust_remote_code=True)
+        model = MiphaPhi15ForCausalLM.from_pretrained(
             model_path,
             config=config,
             use_safetensors=True,
@@ -51,7 +59,8 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             use_safetensors=True,
             **kwargs).to("cuda")
     else:
-        raise ValueError(f"Unknown model name: {model_name}")
+        raise ValueError(f"Unknown model name: {model_name}. Your model name should containe one of ['phi-2', 'phi2',"
+                         f"'phi3', 'phi-3', 'gemma', phi1_5']")
 
     if "clip" in config.vision_config["vision_tower"]["vision_model_name_or_path"]:
         image_processor = CLIPImageProcessor.from_pretrained(model_path)
