@@ -4,6 +4,7 @@ from transformers import PretrainedConfig, PhiConfig, Dinov2Config, GemmaConfig,
 from transformers.utils import logging
 from transformers.utils.backbone_utils import get_aligned_output_features_output_indices
 from .phi3.modeling_phi3 import Phi3Config
+from .phi1_5.modeling_phi import PhiConfig as Phi1_5Config
 
 logger = logging.get_logger(__name__)
 
@@ -182,6 +183,17 @@ DEFAULT_VISUAL_CONFIG = {
 
 
 class MiphaPhiConfig(PhiConfig):
+    model_type = "mipha_phi"
+
+    def __init__(self, vision_config=None, **kwargs):
+        if vision_config is None:
+            self.vision_config = DEFAULT_VISUAL_CONFIG
+        else:
+            self.vision_config = vision_config
+
+        super().__init__(**kwargs)
+
+class MiphaPhi15Config(Phi1_5Config):
     model_type = "mipha_phi"
 
     def __init__(self, vision_config=None, **kwargs):
