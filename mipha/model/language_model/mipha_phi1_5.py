@@ -122,5 +122,5 @@ class MiphaPhi15ForCausalLM(PhiPreTrainedModel, MiphaMetaForCausalLM):
         return model_inputs
 
 
-AutoConfig.register("mipha-phi", MiphaPhi15Config)
+AutoConfig.register("mipha_phi", MiphaPhi15Config)
 AutoModelForCausalLM.register(MiphaPhi15Config, MiphaPhi15ForCausalLM)
