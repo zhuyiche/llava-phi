@@ -129,19 +129,18 @@ python -m mipha.serve.cli \
 If you find LLaVA-Phi or Mipha useful in your research or applications, please consider giving a star ⭐ and citing using the following BibTeX:
 
 ```
-@misc{zhu2024llavaphi,
-      title={LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model}, 
-      author={Yichen Zhu and Minjie Zhu and Ning Liu and Zhicai Ou and Xiaofeng Mou and Jian Tang},
-      year={2024},
-      eprint={2401.02330},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{zhu2024llava,
+  title={Llava-phi: Efficient multi-modal assistant with small language model},
+  author={Zhu, Yichen and Zhu, Minjie and Liu, Ning and Xu, Zhiyuan and Peng, Yaxin},
+  booktitle={Proceedings of the 1st International Workshop on Efficient Multimedia Computing under Limited},
+  pages={18--22},
+  year={2024}
 }
 
 @article{zhu2024comprehensive,
   title={A Comprehensive Overhaul of Multimodal Assistant with Small Language Models},
   author={Zhu, Minjie and Zhu, Yichen and Liu, Xin and Liu, Ning and Xu, Zhiyuan and Shen, Chaomin and Peng, Yaxin and Ou, Zhicai and Feng, Feifei and Tang, Jian},
-  journal={arXiv preprint arXiv:2403.06199},
+ booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
   year={2024}
 }
 
