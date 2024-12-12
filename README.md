@@ -9,7 +9,7 @@
 </div>
 
 * **LLaVA-Phi: Efficient Multi-Modal Assistant with Small Language Model** <br>
-  [![arXiv](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.02330)
+  [![ACMMM 2024 Workshop](https://img.shields.io/badge/Arxiv-2402.03766-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.02330)
 
 
 
@@ -18,6 +18,7 @@
 
 
 ## 📸 Release
+* **`March. 23th, 2024`**: 🔥🔥🔥 [LLaVA-Phi](https://arxiv.org/abs/2401.02330) is accepted by ACMMM 2024 Workshop, and [Mipha](https://arxiv.org/abs/2403.06199) is accepted by AAAI 2025 Main Track.
 * **`March. 23th, 2024`**: Our model 🔥🔥🔥 **Mipha-3B** and corresponding training codes are released.
 * **`Jan. 26th, 2024`**:Now you can download our [model weight]((#llava-weights)).
 * **`Jan. 15th, 2024`**:Our model and training codes are released.
